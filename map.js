@@ -25,9 +25,17 @@ function onMapClick(e) {
 
 map.on('click', onMapClick);
 
+// marker for recycling clothes container
+var clothesMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'shopping-bag',
+  markerColor: 'red'
+});
+
 // OverPassAPI overlay
 var opl = new L.OverPassLayer({
   query: "node['amenity'='recycling']['recycling:clothes'='yes']({{bbox}});out;",
+  markerIcon: clothesMarker,
 });
 
 map.addLayer(opl);

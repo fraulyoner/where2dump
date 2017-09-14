@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "leaflet": "^1.2.0",
-    "leaflet-overpass-layer": "^2.8.0"
+    "leaflet-overpass-layer": "^2.8.0",
+    "font-awesome": "fontawesome#^4.7.0",
+    "Leaflet.awesome-markers": "leaflet-awesome-markers#^2.0.2"
   }
 }
