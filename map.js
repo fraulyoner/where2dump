@@ -10,21 +10,6 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 10, maxZoom: 20, attribution: osmAtt
 map.setView(new L.LatLng(49.00, 8.40), 15);
 map.addLayer(osm);
 
-  // add marker to Karlsruhe Schloss
-var marker = L.marker([49.013397, 8.404370]).addTo(map);
-marker.bindPopup("<b>Karlsruhe</b><br>Schloss Karlsruhe");
-
-// show something when clicking on map
-var popup = L.popup();
-
-function onMapClick(e) {
-  popup.setLatLng(e.latlng)
-       .setContent("You clicked the map at " + e.latlng.toString())
-       .openOn(map);
-}
-
-map.on('click', onMapClick);
-
 // marker for recycling clothes container
 var clothesMarker = L.AwesomeMarkers.icon({
   prefix: 'fa',
