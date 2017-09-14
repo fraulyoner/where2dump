@@ -10,17 +10,41 @@ var osm = new L.TileLayer(osmUrl, {minZoom: 10, maxZoom: 20, attribution: osmAtt
 map.setView(new L.LatLng(49.00, 8.40), 15);
 map.addLayer(osm);
 
-// marker for recycling clothes container
+// markers for containers
 var clothesMarker = L.AwesomeMarkers.icon({
   prefix: 'fa',
   icon: 'shopping-bag',
   markerColor: 'red'
 });
 
-// OverPassAPI overlay
-var opl = new L.OverPassLayer({
+var glassMarker = L.AwesomeMarkers.icon({
+  prefix: 'fa',
+  icon: 'glass',
+  markerColor: 'blue'
+});
+
+// OverPassAPI overlays
+var clothesLayer = new L.OverPassLayer({
   query: "node['amenity'='recycling']['recycling:clothes'='yes']({{bbox}});out;",
   markerIcon: clothesMarker,
 });
 
-map.addLayer(opl);
+var glassLayer = new L.OverPassLayer({
+  query: "node['amenity'='recycling']['recycling:glass'='yes']({{bbox}});out;",
+  markerIcon: glassMarker,
+});
+
+map.addLayer(clothesLayer);
+map.addLayer(glassLayer);
+
+// Layer control (switch on/off layers)
+var baseMap = {
+    "base": osm
+};
+
+var overlayMaps = {
+    "clothes": clothesLayer,
+    "glass": glassLayer
+};
+
+L.control.layers(baseMap, overlayMaps).addTo(map);
