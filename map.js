@@ -31,17 +31,17 @@ var batteriesMarker = L.AwesomeMarkers.icon({
 
 // OverPassAPI overlays
 var clothesLayer = new L.OverPassLayer({
-  query: "node['amenity'='recycling']['recycling:clothes'='yes']({{bbox}});out;",
+  query: 'node["amenity"="recycling"]["recycling:clothes"="yes"]({{bbox}});out;',
   markerIcon: clothesMarker,
 });
 
 var glassLayer = new L.OverPassLayer({
-  query: "node['amenity'='recycling']['recycling:glass'='yes']({{bbox}});out;",
+  query: 'node["amenity"="recycling"]["recycling:glass"="yes"]({{bbox}});out;',
   markerIcon: glassMarker,
 });
 
 var batteriesLayer = new L.OverPassLayer({
-  query: "node['amenity'='recycling']['recycling:batteries'='yes']({{bbox}});out;",
+  query: 'node["amenity"="recycling"]["recycling:batteries"="yes"]({{bbox}});out;',
   markerIcon: batteriesMarker,
 });
 
@@ -50,14 +50,10 @@ map.addLayer(glassLayer);
 map.addLayer(batteriesLayer);
 
 // Layer control (switch on/off layers)
-var baseMap = {
-    "Base": osm
+var overlays = {
+  '<i class="ion ion-battery-low"></i> Batteries': batteriesLayer,
+  '<i class="ion ion-tshirt"></i> Clothes': clothesLayer,
+  '<i class="ion ion-wineglass"></i> Glass': glassLayer
 };
 
-var overlayMaps = {
-    "Clothes": clothesLayer,
-    "Glass": glassLayer,
-    "Batteries": batteriesLayer
-};
-
-L.control.layers(baseMap, overlayMaps).addTo(map);
+L.control.layers({}, overlays, {collapsed: false}).addTo(map);
