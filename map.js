@@ -23,6 +23,12 @@ var glassMarker = L.AwesomeMarkers.icon({
   markerColor: 'blue'
 });
 
+var batteriesMarker = L.AwesomeMarkers.icon({
+  prefix: 'ion',
+  icon: 'battery-low',
+  markerColor: 'orange'
+});
+
 // OverPassAPI overlays
 var clothesLayer = new L.OverPassLayer({
   query: "node['amenity'='recycling']['recycling:clothes'='yes']({{bbox}});out;",
@@ -34,17 +40,24 @@ var glassLayer = new L.OverPassLayer({
   markerIcon: glassMarker,
 });
 
+var batteriesLayer = new L.OverPassLayer({
+  query: "node['amenity'='recycling']['recycling:batteries'='yes']({{bbox}});out;",
+  markerIcon: batteriesMarker,
+});
+
 map.addLayer(clothesLayer);
 map.addLayer(glassLayer);
+map.addLayer(batteriesLayer);
 
 // Layer control (switch on/off layers)
 var baseMap = {
-    "base": osm
+    "Base": osm
 };
 
 var overlayMaps = {
-    "clothes": clothesLayer,
-    "glass": glassLayer
+    "Clothes": clothesLayer,
+    "Glass": glassLayer,
+    "Batteries": batteriesLayer
 };
 
 L.control.layers(baseMap, overlayMaps).addTo(map);
