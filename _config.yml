@@ -1,1 +1,1 @@
-exclude: [lib/]
+exclude: [lib/**/*.scss, lib/**/*.less]
