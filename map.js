@@ -12,14 +12,14 @@ map.addLayer(osm);
 
 // markers for containers
 var clothesMarker = L.AwesomeMarkers.icon({
-  prefix: 'fa',
-  icon: 'shopping-bag',
-  markerColor: 'red'
+  prefix: 'ion',
+  icon: 'tshirt',
+  markerColor: 'cadetblue'
 });
 
 var glassMarker = L.AwesomeMarkers.icon({
-  prefix: 'fa',
-  icon: 'glass',
+  prefix: 'ion',
+  icon: 'wineglass',
   markerColor: 'blue'
 });
 
