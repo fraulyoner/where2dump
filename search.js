@@ -24,6 +24,5 @@ function searchAddress() {
 
 function chooseAddress(lat, lng, type) {
   var location = new L.LatLng(lat, lng);
-  map.panTo(location);
-  map.setZoom(15);
+  map.setView(location, 15);
 }

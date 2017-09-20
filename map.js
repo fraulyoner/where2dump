@@ -5,9 +5,6 @@ var map = new L.Map('map').fitWorld();
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 var osmAttrib='Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
 var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
-
-// start the map in Karlsruhe, Germany
-//map.setView(new L.LatLng(49.00, 8.40), 15);
 map.addLayer(osm);
 
 // markers for containers
