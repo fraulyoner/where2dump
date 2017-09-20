@@ -11,3 +11,28 @@ html, body, #map {
 .awesome-marker i {
   font-size: 1.5em;
 }
+
+#search {
+  background-color: #FFF;
+  height: auto;
+  left: 50px;
+  padding: 10px;
+  position: absolute;
+  top: 10px;
+  width: auto;
+  z-index: 1000;
+}
+
+#search input {
+  width: 200px;
+}
+
+#search #results {
+  font-size: 75%;
+}
+
+#search #results ul {
+  color: black;
+  list-style: none;
+  padding: 0;
+}
