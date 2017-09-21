@@ -1,5 +1,5 @@
 function searchAddress() {
-  var nominatimURL = 'http://nominatim.openstreetmap.org/search?format=json&limit=5&q=';
+  var nominatimURL = 'http://nominatim.openstreetmap.org/search?format=json&limit=3&q=';
   var searchQuery = $('#address').val();
 
   $.getJSON(nominatimURL + searchQuery, function(data) {
