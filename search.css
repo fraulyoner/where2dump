@@ -1,17 +1,14 @@
-#search {
-  /* OK */
+body {
+  margin-top: 3em;
 }
 
-#search input {
-  width: 200px;
+input,
+button {
+  width: 100%;
 }
 
-#searchResults {
-  /* OK */
-}
-
-#searchResults ul {
-  color: black;
+ul {
   list-style: none;
+  margin: 0;
   padding: 0;
 }

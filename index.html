@@ -8,17 +8,36 @@
   <title>where2dump</title>
   <link rel="stylesheet" type="text/css"
         href="lib/Ionicons/css/ionicons.min.css"/>
+  <link rel="stylesheet" type="text/css"
+        href="lib/spectre.css/docs/dist/spectre.min.css"/>
   <link rel="stylesheet" type="text/css" href="search.css"/>
 </head>
 
 <body>
 
-<form id="search">
-  <input type="text" value="" id="address"/>
-  <input type="submit" value="Search"/>
-</form>
-
-<div id="searchResults"></div>
+<div class="container">
+  <div class="columns">
+    <div class="column col-xs-12 col-sm-12 col-md-6 col-4 col-mx-auto">
+      <h1 class="text-center"><i class="ion ion-loop"></i> where2dump</h1>
+      <form id="search">
+        <p>Find containers to recycle batteries, clothes or glass nearby</p>
+        <div class="form-group has-icon-left">
+          <input class="form-input" type="text" value="" id="address"
+                 placeholder="Address, Postcode or City">
+          <i class="form-icon ion ion-ios-location-outline"></i>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Search"/>
+        </div>
+        <div id="searchResults"></div>
+        <div class="divider text-center" data-content="OR"></div>
+        <button class="btn">
+          <i class="form-icon ion ion-android-locate"></i> Use current location
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript" src="search.js"></script>
