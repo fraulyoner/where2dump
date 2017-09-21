@@ -1,0 +1,17 @@
+#search {
+  /* OK */
+}
+
+#search input {
+  width: 200px;
+}
+
+#searchResults {
+  /* OK */
+}
+
+#searchResults ul {
+  color: black;
+  list-style: none;
+  padding: 0;
+}

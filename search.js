@@ -1,8 +1,8 @@
 function searchAddress() {
   var nominatimURL = 'http://nominatim.openstreetmap.org/search?format=json&limit=5&q=';
-  var input = $('#address');
+  var searchQuery = $('#address').val();
 
-  $.getJSON(nominatimURL + input.val(), function(data) {
+  $.getJSON(nominatimURL + searchQuery, function(data) {
     var items = [];
 
     $.each(data, function(key, val) {
@@ -13,11 +13,14 @@ function searchAddress() {
       );
     });
 
-    $('#results').empty();
-    if (items.length != 0) {
-      $('<ul/>', {html: items.join('')}).appendTo('#results');
+    var numberOfSearchResults = items.length;
+    console.log('Found ' + numberOfSearchResults + ' results for query = ' + searchQuery)
+
+    $('#searchResults').empty();
+    if (numberOfSearchResults != 0) {
+      $('<ul/>', {html: items.join('')}).appendTo('#searchResults');
     } else {
-      $('<p>', { html: 'No results found' }).appendTo('#results');
+      $('<p>', { html: 'No results found' }).appendTo('#searchResults');
       }
   });
 }
@@ -26,3 +29,8 @@ function chooseAddress(lat, lng, type) {
   var location = new L.LatLng(lat, lng);
   map.setView(location, 15);
 }
+
+$('#search').submit(function(event) {
+  event.preventDefault();
+  searchAddress();
+});
