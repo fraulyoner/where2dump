@@ -1,5 +1,14 @@
 // set up the map
-var map = new L.Map('map').fitWorld();
+var map = new L.Map('map');
+
+var lat = getUrlParameter('lat');
+var lon = getUrlParameter('lon');
+
+if(lat && lon) {
+  map.setView(new L.LatLng(lat, lon), 15);
+} else {
+  map.fitWorld();
+}
 
 // create the tile layer with correct attribution
 var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
