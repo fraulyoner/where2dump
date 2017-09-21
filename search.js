@@ -7,8 +7,8 @@ function searchAddress() {
 
     $.each(data, function(key, val) {
       items.push(
-        '<li><a href="#" onclick="chooseAddress(' +
-        val.lat + ', ' + val.lon + ');return false;">' + val.display_name +
+        '<li><a href="map.html?lat=' +
+        val.lat + '&lon=' + val.lon + '">' + val.display_name +
         '</a></li>'
       );
     });
@@ -23,11 +23,6 @@ function searchAddress() {
       $('<p>', { html: 'No results found' }).appendTo('#searchResults');
       }
   });
-}
-
-function chooseAddress(lat, lng, type) {
-  var location = new L.LatLng(lat, lng);
-  map.setView(location, 15);
 }
 
 $('#search').submit(function(event) {
