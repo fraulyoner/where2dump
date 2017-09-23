@@ -3,7 +3,8 @@ body {
 }
 
 input,
-button {
+button,
+.btn {
   width: 100%;
 }
 
