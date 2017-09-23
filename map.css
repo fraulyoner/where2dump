@@ -8,6 +8,7 @@ html, body, #map {
   width: 100vw;
 }
 
-.awesome-marker i {
+.awesome-marker i,
+.leaflet-control-layers-overlays i {
   font-size: 1.5em;
 }

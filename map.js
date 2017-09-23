@@ -63,9 +63,9 @@ map.addLayer(batteriesLayer);
 
 // Layer control (switch on/off layers)
 var overlays = {
-  '<i class="ion ion-battery-low"></i> Batteries': batteriesLayer,
-  '<i class="ion ion-tshirt"></i> Clothes': clothesLayer,
-  '<i class="ion ion-wineglass"></i> Glass': glassLayer
+  '<i class="ion ion-battery-low"></i>': batteriesLayer,
+  '<i class="ion ion-tshirt"></i>': clothesLayer,
+  '<i class="ion ion-wineglass"></i>': glassLayer
 };
 
 L.control.layers({}, overlays, {collapsed: false}).addTo(map);
