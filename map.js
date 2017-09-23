@@ -7,7 +7,7 @@ var lon = getUrlParameter('lon');
 if(lat && lon) {
   map.setView(new L.LatLng(lat, lon), 15);
 } else if(getUrlParameter('locate')) {
-  map.locate({setView: true, maxZoom: 20});
+  map.locate({setView: true, maxZoom: 20, enableHighAccuracy: true});
   map.on('locationfound', function(e) {
     var radius = e.accuracy / 2;
     L.circle(e.latlng, radius).addTo(map);
