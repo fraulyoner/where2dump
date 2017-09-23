@@ -41,20 +41,31 @@ var batteriesMarker = L.AwesomeMarkers.icon({
   markerColor: 'orange'
 });
 
+var minZoomMessage = "Please zoom in to see the recycling containers<br/>(current zoom level is CURRENTZOOM, required is MINZOOMLEVEL)";
+
 // OverPassAPI overlays
 var clothesLayer = new L.OverPassLayer({
   query: 'node["amenity"="recycling"]["recycling:clothes"="yes"]({{bbox}});out;',
   markerIcon: clothesMarker,
+  minZoomIndicatorOptions: {
+    minZoomMessage: minZoomMessage
+  }
 });
 
 var glassLayer = new L.OverPassLayer({
   query: 'node["amenity"="recycling"]["recycling:glass"="yes"]({{bbox}});out;',
   markerIcon: glassMarker,
+  minZoomIndicatorOptions: {
+    minZoomMessage: minZoomMessage
+  }
 });
 
 var batteriesLayer = new L.OverPassLayer({
   query: 'node["amenity"="recycling"]["recycling:batteries"="yes"]({{bbox}});out;',
   markerIcon: batteriesMarker,
+  minZoomIndicatorOptions: {
+    minZoomMessage: minZoomMessage
+  }
 });
 
 map.addLayer(clothesLayer);
