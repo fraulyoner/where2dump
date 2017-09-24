@@ -43,6 +43,12 @@ var clothesLayer = new L.OverPassLayer({
   markerIcon: clothesMarker,
   minZoomIndicatorOptions: {
     minZoomMessage: minZoomMessage
+  },
+  beforeRequest: function() {
+    map.spin(true);
+  },
+  afterRequest: function() {
+    map.spin(false);
   }
 });
 
@@ -51,6 +57,12 @@ var glassLayer = new L.OverPassLayer({
   markerIcon: glassMarker,
   minZoomIndicatorOptions: {
     minZoomMessage: minZoomMessage
+  },
+  beforeRequest: function() {
+    map.spin(true);
+  },
+  afterRequest: function() {
+    map.spin(false);
   }
 });
 
@@ -59,6 +71,12 @@ var batteriesLayer = new L.OverPassLayer({
   markerIcon: batteriesMarker,
   minZoomIndicatorOptions: {
     minZoomMessage: minZoomMessage
+  },
+  beforeRequest: function() {
+    map.spin(true);
+  },
+  afterRequest: function() {
+    map.spin(false);
   }
 });
 
