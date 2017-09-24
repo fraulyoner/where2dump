@@ -1,6 +1,12 @@
 function searchAddress() {
   var nominatimURL = 'http://nominatim.openstreetmap.org/search?format=json&limit=3&q=';
-  var searchQuery = $('#address').val();
+
+  var $address = $('#address');
+  var searchQuery = $address.val();
+
+  var resultsSelector = '#searchResults';
+  var $results = $(resultsSelector);
+  $results.html('<div class="loading"></div>');
 
   $.getJSON(nominatimURL + searchQuery, function(data) {
     var items = [];
@@ -16,11 +22,11 @@ function searchAddress() {
     var numberOfSearchResults = items.length;
     console.log('Found ' + numberOfSearchResults + ' results for query = ' + searchQuery)
 
-    $('#searchResults').empty();
+    $results.empty();
     if (numberOfSearchResults != 0) {
-      $('<ul/>', {html: items.join('')}).appendTo('#searchResults');
+      $('<ul/>', {html: items.join('')}).appendTo(resultsSelector);
     } else {
-      $('<p>', { html: 'No results found' }).appendTo('#searchResults');
+      $('<p>', { html: 'No results found' }).appendTo(resultsSelector);
       }
   });
 }
