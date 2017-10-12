@@ -6,6 +6,16 @@ var lon = getUrlParameter('lon');
 
 if(lat && lon) {
   map.setView(new L.LatLng(lat, lon), 15);
+
+  var icon = L.AwesomeMarkers.icon({
+    prefix: 'ion',
+    icon: 'android-locate',
+    markerColor: 'red'
+  });
+
+  var marker = L.marker([lat, lon], {icon: icon}).addTo(map);
+
+  marker.bindPopup("You are here!");
 } else {
   map.fitWorld();
 }
